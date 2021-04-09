@@ -5,16 +5,15 @@ remote_file "/tmp/#{node['java']['install']['file']}" do
     group 'root'
 end
 
-bash 'make_dir' do
-    code <<-EOH
-	mkdir -p /usr/lib/jvm
-    EOH
+# Make Directory
+excute "make_dir" do
+    command "mkdir -p /usr/lib/jvm"
+    action :run
 end
 
 # Extract the file
-tar_extract "/tmp/#{node['java']['install']['file']}" do
-    action :extract_local
-    target_dir "/usr/lib/jvm"
-    tar_flags [ '-P', '--strip-components 1' ]
+excute "extract_tar" do
+    command "sudo tar xfvz /tmp/#{node['java']['install']['file']} --directory /usr/lib/jvm"
+    action :run
 end
 
