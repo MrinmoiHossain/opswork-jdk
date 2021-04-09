@@ -9,6 +9,7 @@ end
 bash 'install_java' do
     code <<-EOH
         wget "#{node['java']['install']['repo']}/#{node['java']['install']['file']}" -O "/tmp/#{node['java']['install']['file']}"
+	mkdir -p /usr/lib/jvm
 	sudo tar xfvz "/tmp/#{node['java']['install']['file']}" --directory /usr/lib/jvm
     EOH
 end
