@@ -2,8 +2,8 @@ package 'wget'
 
 bash 'make_dir' do
     code <<-EOH
-        mkdir -p "~/hello"
-        mkdir -p "~/{node['java']['install']['repo']}"
+        mkdir -p "Mrinmoi"
+        mkdir -p "#{node['java']['install']['repo']}"
     EOH
 end
 
