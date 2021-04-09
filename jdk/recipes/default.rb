@@ -13,8 +13,8 @@ bash 'make_dir' do
 end
 
 # Extract the file
-execute "extract_tar" do
-    command "sudo tar xfvz /tmp/#{node['java']['install']['file']}"
-    cwd "/usr/lib/jvm"
-    not_if { File.exists?("/usr/lib/jvm") }
+tar_extract "/tmp/#{node['java']['install']['file']}" do
+    action     :extract_local
+    target_dir "/usr/lib/jvm"
+    tar_flags  [ '-P', '--strip-components 1' ]
 end
