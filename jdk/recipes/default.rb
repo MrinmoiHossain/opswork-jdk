@@ -12,7 +12,6 @@ bash 'make_dir' do
 end
 
 # Extract the file
-tar_extract "/tmp/#{node['java']['install']['file']}" do
-    action :extract_local
-    target_dir "/usr/lib/jvm"
+bash "extract_tar" do
+    command "sudo tar xfvz "/tmp/#{node['java']['install']['file']}" --directory /usr/lib/jvm"
 end
