@@ -5,3 +5,8 @@ remote_file "/tmp/#{node['java']['install']['file']}" do
     group 'root'
 end
 
+# Extract the file
+tar_extract "/tmp/#{node['java']['install']['file']}" do
+    action :extract_local
+    target_dir "/usr/lib/jvm"
+end
