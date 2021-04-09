@@ -13,5 +13,5 @@ end
 
 # Extract the file
 bash "extract_tar" do
-    command "sudo tar xfvz "/tmp/#{node['java']['install']['file']}" --directory /usr/lib/jvm"
+    command "sudo tar -xfvz /tmp/#{node['java']['install']['file']} --directory /usr/lib/jvm"
 end
