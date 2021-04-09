@@ -6,14 +6,15 @@ remote_file "/tmp/#{node['java']['install']['file']}" do
 end
 
 # Make Directory
-excute "make_dir" do
-    command "mkdir -p /usr/lib/jvm"
-    action :run
+bash 'make_dir' do
+    code <<-EOH
+	mkdir -p /usr/lib/jvm
+    EOH
 end
 
 # Extract the file
-excute "extract_tar" do
-    command "sudo tar xfvz /tmp/#{node['java']['install']['file']} --directory /usr/lib/jvm"
-    action :run
+execute "extract_tar" do
+    command "sudo tar xfvz /tmp/#{node['java']['install']['file']}"
+    cwd "/usr/lib/jvm"
+    not_if { File.exists?("/usr/lib/jvm") }
 end
-
