@@ -11,4 +11,6 @@ archive_file '/tmp/#{node['java']['install']['file']}' do
     destination '/usr/lib/jvm'
     owner 'root'
     group 'root'
+    action :extract
+    not_if{::Dir.exist?("/usr/lib/jvm")}
 end
