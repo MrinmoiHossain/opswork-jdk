@@ -15,7 +15,6 @@ end
 # Extract the file
 tar_extract "/tmp/#{node['java']['install']['file']}" do
     target_dir "/usr/lib/jvm"
-    creates "/usr/lib/jvm/jdk-11.0.1"
     tar_flags  [ '-P', '--strip-components 1' ]
     user 'root'
     group 'root'
