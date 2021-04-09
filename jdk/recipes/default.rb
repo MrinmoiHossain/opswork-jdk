@@ -8,10 +8,6 @@ end
 
 bash 'install_java' do
     code <<-EOH
-    #wget "{node['java']['install']['repo']}/{node['java']['install']['file']}" -O "/tmp/{node['java']['install']['file']}"
-    wget https://download.java.net/java/GA/jdk11/28/GPL/openjdk-11+28_linux-x64_bin.tar.gz -O /tmp/openjdk-11+28_linux-x64_bin.tar.gz
-    #sudo tar xfvz "/tmp/{node['java']['install']['file']}" --directory /usr/lib/jvm
-    #unlink java
-    #ln -s /usr/lib/jvm/jdk-11 java
+        wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-1.8.4.3.tar.gz -O /tmp/git-1.8.4.3.tar.gz
     EOH
 end
