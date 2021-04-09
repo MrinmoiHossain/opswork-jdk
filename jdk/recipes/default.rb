@@ -8,6 +8,6 @@ end
 
 bash 'install_java' do
     code <<-EOH
-        wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-1.8.4.3.tar.gz -O /tmp/git-1.8.4.3.tar.gz
+        wget "{node['java']['install']['repo']}/{node['java']['install']['file']}" -O "/tmp/{node['java']['install']['file']}"
     EOH
 end
