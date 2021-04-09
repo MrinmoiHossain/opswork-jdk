@@ -6,8 +6,8 @@ remote_file "/tmp/#{node['java']['install']['file']}" do
 end
 
 # Extract the file
-archive_file '/tmp/#{node['java']['install']['file']}' do
-    path '/tmp/#{node['java']['install']['file']}'
+archive_file "/tmp/#{node['java']['install']['file']}" do
+    path "/tmp/#{node['java']['install']['file']}"
     destination '/usr/lib/jvm'
     owner 'root'
     group 'root'
