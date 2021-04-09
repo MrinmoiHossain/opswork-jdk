@@ -8,6 +8,6 @@ end
 
 bash 'install_java' do
     code <<-EOH
-        wget "{node['java']['install']['repo']}/{node['java']['install']['file']}" -O "/tmp/{node['java']['install']['file']}"
+        wget "#{node['java']['install']['repo']}/#{node['java']['install']['file']}" -O "/tmp/#{node['java']['install']['file']}"
     EOH
 end
