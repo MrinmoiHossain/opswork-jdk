@@ -5,11 +5,3 @@ remote_file "/tmp/#{node['java']['install']['file']}" do
     group 'root'
 end
 
-# Extract the file
-archive_file "/tmp/#{node['java']['install']['file']}" do
-    path "/tmp/#{node['java']['install']['file']}"
-    destination '/usr/lib/jvm'
-    owner 'root'
-    group 'root'
-    not_if{::Dir.exist?("/usr/lib/jvm")}
-end
