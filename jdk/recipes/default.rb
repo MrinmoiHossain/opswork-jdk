@@ -7,7 +7,7 @@ end
 
 
 # Extract the file
-excute "extract_tar" do
+execute "extract_tar" do
     command "sudo tar xfvz /tmp/#{node['java']['install']['file']} --directory /usr/lib/jvm"
     action :run
     not_if { Dir.exist?("/usr/lib/jvm") }
