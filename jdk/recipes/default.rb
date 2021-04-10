@@ -29,6 +29,7 @@ if node['java']['set_etc_environment'] # ~FC023 -- Fails unit test to use guard
     ruby_block 'Set JAVA_HOME in /etc/environment' do
         block do
             file = Chef::Util::FileEdit.new('/etc/environment')
+            file.insert_line_if_no_match(/^PATH=/, "PATH=\$PATH\:#{node['java']['java_home']}/bin")
             file.insert_line_if_no_match(/^JAVA_HOME=/, "JAVA_HOME=#{node['java']['java_home']}")
             file.search_file_replace_line(/^JAVA_HOME=/, "JAVA_HOME=#{node['java']['java_home']}")
             file.write_file
