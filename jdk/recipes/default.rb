@@ -7,6 +7,11 @@ end
 
 # Make Directory 
 directory "#{node['java']['jvm_dir']}" do
+    action :delete
+    only_if { ::Dir.exist?("#{node['java']['jvm_dir']}") || !::File.symlink?("#{node['java']['jvm_dir']}") }
+end
+
+directory "#{node['java']['jvm_dir']}" do
     owner 'root'
     group 'root'
     action :create
