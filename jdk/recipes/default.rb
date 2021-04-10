@@ -22,6 +22,7 @@ end
 tar_extract "/tmp/#{node['java']['install']['file']}" do
     action :extract_local
     target_dir "#{node['java']['jvm_dir']}"
+    creates "#{node['java']['jvm_dir']}/test_file"
     user 'root'
     group 'root'
 end
