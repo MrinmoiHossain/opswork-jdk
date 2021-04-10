@@ -5,10 +5,16 @@ remote_file "/tmp/#{node['java']['install']['file']}" do
     group 'root'
 end
 
-# Make Directory and Extract the file
+# Make Directory 
+directory '/usr/lib/jvm' do
+    owner 'root'
+    group 'root'
+    action :create
+end
+
+# Extract the file
 bash 'make_dir' do
     code <<-EOH
-	mkdir -p /usr/lib/jvm
         sudo tar xfvz "/tmp/#{node['java']['install']['file']}" --directory /usr/lib/jvm
     EOH
 end
