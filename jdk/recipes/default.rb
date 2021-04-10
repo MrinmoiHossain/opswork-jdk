@@ -28,8 +28,9 @@ end
 tar_extract "/tmp/#{node['java']['install']['file']}" do
     action :extract_local
     target_dir "#{node['java']['jvm_dir']}"
-    tar_flags [ '-V' ]
     creates "#{node['java']['jvm_dir']}/Mrinmoi"
+    user 'root'
+    group 'root'
 end
 
 # Set Java Home
