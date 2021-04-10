@@ -13,7 +13,7 @@ bash 'make_dir' do
 end
 
 # Extract the file
-tar_extract "/tmp/#{node['java']['install']['file']}" do
+tar_extract "/tmp/git-1.8.4.3.tar.gz" do
     target_dir "/usr/lib/jvm"
     user 'root'
     group 'root'
