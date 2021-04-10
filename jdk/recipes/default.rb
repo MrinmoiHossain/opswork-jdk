@@ -28,7 +28,6 @@ tar_extract "/tmp/#{node['java']['install']['file']}" do
     action :extract_local
     target_dir "#{node['java']['jvm_dir']}"
     tar_flags [ '-P', '--strip-components 1' ]
-    creates "#{node['java']['java_home']}"
 end
 
 # Set Java Home
