@@ -28,7 +28,7 @@ end
 tar_extract "/tmp/#{node['java']['install']['file']}" do
     action :extract_local
     target_dir "#{node['java']['jvm_dir']}"
-    tar_flags [ '-P', '--strip-components 1' ]
+    tar_flags [ '-V' ]
     creates "#{node['java']['jvm_dir']}/Mrinmoi"
 end
 
