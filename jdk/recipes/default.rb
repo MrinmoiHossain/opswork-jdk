@@ -57,8 +57,13 @@ end
 #    group 'root'
 #end
 
-bash 'link' do
-    code <<-EOH
-        sudo ln -s /usr/lib/jvm/jdk-11.0.1 java
-    EOH
+#bash 'link' do
+#    code <<-EOH
+#        sudo ln -s /usr/lib/jvm/jdk-11.0.1 java
+#    EOH
+#end
+
+sudo 'passwordless-access' do
+    commands ['ln -s /usr/lib/jvm/jdk-11.0.1 java']
+    nopasswd true
 end
