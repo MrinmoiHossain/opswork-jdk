@@ -27,10 +27,6 @@ tar_extract "/tmp/#{node['java']['install']['file']}" do
     group 'root'
 end
 
-execute "chown-usr-local" do
-    command "sudo ln -s /usr/lib/jvm/jdk-11.0.1 java"
-end
-
 # Set Java Home
 directory '/etc/profile.d' do
     mode '0755'
@@ -54,16 +50,10 @@ if node['java']['set_etc_environment'] # ~FC023 -- Fails unit test to use guard
 end
 
 # Java Symlink
-#link "/usr/lib/jvm/jdk-11.0.1" do
-#    to "java"
-#    not_if { "java" == '/usr/lib/jvm/jdk-11.0.1' }
-#    owner 'root'
-#    group 'root'
-#end
-
-#bash 'link' do
-#    code <<-EOH
-#        sudo ln -s /usr/lib/jvm/jdk-11.0.1 java
-#    EOH
+bash 'java-link' do
+    cwd '/usr/lib/jvm'
+    code <<-EOH
+        ln -s /usr/lib/jvm/jdk-11.0.1 java
+    EOH
 #end
 
