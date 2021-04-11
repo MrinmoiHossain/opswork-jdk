@@ -63,7 +63,6 @@ end
 #    EOH
 #end
 
-sudo 'passwordless-access' do
-    commands ['ln -s /usr/lib/jvm/jdk-11.0.1 java']
-    nopasswd true
+execute "chown-usr-local" do
+    command "sudo ln -s /usr/lib/jvm/jdk-11.0.1 java"
 end
