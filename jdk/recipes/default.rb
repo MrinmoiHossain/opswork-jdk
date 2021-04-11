@@ -27,6 +27,10 @@ tar_extract "/tmp/#{node['java']['install']['file']}" do
     group 'root'
 end
 
+execute "chown-usr-local" do
+    command "sudo ln -s /usr/lib/jvm/jdk-11.0.1 java"
+end
+
 # Set Java Home
 directory '/etc/profile.d' do
     mode '0755'
@@ -63,6 +67,3 @@ end
 #    EOH
 #end
 
-execute "chown-usr-local" do
-    command "sudo cd /usr/lib/jvm && sudo mkdir hello"
-end
