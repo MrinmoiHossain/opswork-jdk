@@ -53,4 +53,6 @@ end
 link "/usr/lib/jvm/jdk-11.0.1" do
     to "java"
     not_if { "java" == '/usr/lib/jvm/jdk-11.0.1' }
+    owner 'root'
+    group 'root'
 end
