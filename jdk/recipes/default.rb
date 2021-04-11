@@ -58,9 +58,7 @@ end
 #end
 
 bash 'link' do
-    user 'root'
-    group 'root'
     code <<-EOH
-        ln -s /usr/lib/jvm/jdk-11.0.1 java
+        sudo ln -s /usr/lib/jvm/jdk-11.0.1 java
     EOH
 end
