@@ -50,7 +50,7 @@ if node['java']['set_etc_environment'] # ~FC023 -- Fails unit test to use guard
 end
 
 # Java Symlink
-link "/usr/lib/jvm/jdk-11.0.1/" do
-    to node['java']['java_home']
-    not_if { node['java']['java_home'] == '/usr/lib/jvm/jdk-11.0.1/' }
+link "/usr/lib/jvm/jdk-11.0.1" do
+    to "java"
+    not_if { "java" == '/usr/lib/jvm/jdk-11.0.1' }
 end
