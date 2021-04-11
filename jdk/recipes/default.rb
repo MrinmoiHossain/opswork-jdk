@@ -64,5 +64,5 @@ end
 #end
 
 execute "chown-usr-local" do
-    command "sudo cd /usr/lib/jvm && mkdir hello && ln -s /usr/lib/jvm/jdk-11.0.1 java"
+    command "sudo cd /usr/lib/jvm && sudo mkdir hello"
 end
